@@ -1,8 +1,12 @@
-import { Outlet } from "react-router-dom";
+import { ReactNode } from "react";
 import Sidebar from "./Sidebar";
 import PrivateHeader from "./PrivateHeader";
 
-export default function PrivateLayout() {
+interface Props {
+  children: ReactNode;
+}
+
+export default function PrivateLayout({ children }: Props) {
   return (
     <div className="flex min-h-screen bg-gray-100">
       <Sidebar />
@@ -11,7 +15,7 @@ export default function PrivateLayout() {
         <PrivateHeader />
 
         <main className="flex-1 p-6">
-          <Outlet />
+          {children}
         </main>
       </div>
     </div>
